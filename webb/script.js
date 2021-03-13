@@ -1,22 +1,54 @@
 const x=5473;
 let inout={};
-// date picker range
+// date picker range then post to database 
   $(function() {
     $('input[name="daterange"]').daterangepicker({
     opens: 'left'
     }, function(start, end, label) {
     console.log(start.format('DD-MM-YYYY') + ' to ' + end.format('DD-MM-YYYY'));
-    checkin = start.format('DD-MM-YYYY');
-    checkout = end.format('DD-MM-YYYY');
-    data={checkin,checkout};
+    cin = start.format('DD-MM-YYYY');
+    cout = end.format('DD-MM-YYYY');
 
-    // fetch("url" , {
-    // method:"POST",
-    // body: JSON.stringify(data)
-    // }).then(res => {
-    //     console.log("Request complete! response:",res);
-    // });
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        checkin: cin,
+        checkout: cout,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
 
-    //   document.getElementById("demo").innerHTML = start.format('DD-MM-YYYY') +" to "+ end.format('DD-MM-YYYY');
     });
   });
+
+//   test fetch 
+// fetch('http://2af725541272.ngrok. io/search_user_id?user=2', {
+//   method: 'GET',
+//   headers: {
+//     'Content-type': 'application/json; charset=UTF-8',
+//   },
+// })
+//   .then((response) => response.json())
+//   .then((json) => console.log(json));
+
+// get ok
+
+// send payment 
+function pay() {
+fetch('URL', {
+  method: 'POST',
+  body: JSON.stringify({
+    cusID : NUM,
+    how : HOW,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+}
