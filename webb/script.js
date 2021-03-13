@@ -35,6 +35,12 @@ var dummy=[["6", "5", 7500],
       .then(data => obj = data)
       .then((json) => console.log(json));
       // end fetch
+      //create talble
+      var mytable = "<table><tr>";
+      for (var CELL of dummy) {  mytable += "<td>" + CELL + "</td>"; }
+          mytable += "</tr></table>";
+          document.getElementById("ID").innerHTML = mytable;
+
 
     });
   });
