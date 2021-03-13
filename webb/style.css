@@ -10,14 +10,14 @@ body{
     border: 3px solid rgb(7, 7, 7);
     padding: 10px;
     margin-top: 50px;
+    border-radius: 20px;
   }
-  
+
 /* nav bar */
   .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: rgb(88, 86, 86);
     opacity: 90%;
-
   }
   .topnav a {
     float: left;
@@ -32,7 +32,12 @@ body{
     background-color: #ddd;
     color: black;
   }
-  .topnav a.active {
-    background-color: #4CAF50;
+   .topnav a.book {
+    background-color: #000000;
     color: white;
-  }
+  } 
+
+   .topnav a.admin {
+    background-color: #252525;
+    color: white;
+  }   
