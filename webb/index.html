@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <div class="container">    
           <nav>
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="admin.html">Admin</a></li>
               <li><a href="payment.html">Payment</a></li>
               <li><a href="#">Something</a></li>
             </ul>
@@ -22,22 +22,96 @@
         </div>
       </header>
 
+      <section class="container2">
+        <div class="left-half">
+          <div class="box">
+            <a href="#" class="myButton">Choose Date</a>
+            <input type="text" name="daterange" value="01/01/2021 - 1/31/2021" />
 
+            </div>
+            <table id="ID"></table>
+        </div>
 
-    <!-- nav
-    <div class="topnav">
-        <a class="book" href="./index.html">BOOKING</a>
-        <a class="admin" href="./admin.html">ADMIN</a>
-      </div>    -->
+        <div class="right-half">
+          <section class="box2"> 
+            <!-- formmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+          <form>
+            <label for="room">Room:</label><br>
+            <input type="text" id="roomid" name="roomid"  placeholder="example 601,502"><br>
 
+            <label for="room">personcout:</label><br>
+            <input type="text" id="person" name="person"  placeholder="example 1,2"><br>
 
-    <div class="box">
-    <input type="text" name="daterange" value="01/01/2021 - 1/31/2021" />
-    <!-- <p id="demo"></p> -->
-    <a href="#" class="myButton">CHECK</a>
-    </div>
-    <table id="ID"></table>
+            <div class="service">
+              <label for="service">Service:</label><br>
+              <!-- <input type="checkbox" id="driver" name="driver" value="1">
+              uncheck
+              <input type="hidden" id="undriver" name="driver" value="0">
+              <label for="driver">driver</label><br>
 
+              <input type="checkbox" id="massage" name="massage" value="1">
+              uncheck
+              <input type="hidden" id="unmassage" name="massage" value="0">
+              <label for="massage">Massage</label><br> -->
+              <label for="checkser"  style="word-wrap:break-word">
+                <input id="driver" type="checkbox" name="driver" value="1" >
+                <input type="hidden" id="undriver" name="driver" value="0">driver
+             </label>
+             <label for="checkser"  style="word-wrap:break-word">
+              <input id="massage" type="checkbox" name="massage" value="1" >
+              <input type="hidden" id="unmassage" name="massage" value="0">massage
+             </label>
+              <div>
+              <input type="checkbox" id="breakfast" name="breakfast" value="1">
+              <!-- uncheck -->
+              <input type="hidden" id="unbreakfast" name="breakfast" value="0">
+              <label for="breakfast">Breakfast</label>
+
+              <input type="checkbox" id="dinner" name="dinner" value="1">
+              <!-- uncheck -->
+              <input type="hidden" id="undinner" name="dinner" value="0">
+              <label for="dinner">Dinner</label>
+            </div>
+            </div>
+
+            <label for="fname">First name:</label><br>
+            <input type="text" id="firstname" name="firstname" value="" placeholder="Your firstname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lastname" name="lastname" value="" placeholder="Your lastname"><br>
+            <input type="hidden" id="bookdate" name="bookdate" value="araiwaa">
+            <input type="hidden" id="checkin" name="checkin" value=cin>
+            <input type="hidden" id="checkout" name="checkout" value=cout>
+
+            <div class="sex">
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="male">male
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="male">female
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="other">other
+              </label>
+            </div>
+
+            <div>
+              <label for="age">Age:</label><br>
+              <input type="number" id="age" name="age" value="" placeholder="Your Age"><br>
+              <label for="email">email:</label><br>
+              <input type="text" id="email" name="email" value="" placeholder="Your Email"><br>
+              <label for="telephone">Telephone:</label><br>
+              <input type="text" id="tel" name="tel" value="" placeholder="Your Telephone number"><br><br>
+              <input type="submit" value="Submit">
+            </div>
+          </form> 
+        </section>
+        </div>
+
+        <div class="results">
+          <h2>Form Data</h2>
+          <pre></pre>
+        </div>
+      </section>
 
 <!-- for date picker -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>

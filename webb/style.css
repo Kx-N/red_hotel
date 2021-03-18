@@ -75,7 +75,6 @@ nav a:hover::before {
 }
 
 .box{
-    
     text-align: center;
     margin: auto;
     width: 30%;
@@ -110,3 +109,59 @@ nav a:hover::before {
 	position:relative;
 	top:1px;
 }
+
+.container2{
+  display: table;
+  width: 100%;
+}
+
+.left-half {
+  /* position: absolute; */
+  /* background-color: #84d1b7; */
+  width: 50%;
+  height: 100%;
+}
+
+.right-half {
+  position: absolute;
+  /* background-color: #0ecc8d; */
+  right: 0px;
+  width: 50%;
+  height: 100%;
+}
+
+/* table */
+table, th, td {
+  margin-top: 10px;
+  margin-left: 230px;
+  background-color: azure;
+  text-align: center;
+  border: 1px solid #222;
+}
+table{
+  width: 20%;
+  border-radius: 10px;
+}
+
+.box2{
+  color: white;
+  text-align: center;
+  margin-top: 0%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  border: 3px solid rgb(255, 255, 255);
+  padding: 10px;
+  /* margin-top: 50px; */
+  border-radius: 20px;
+}
+
+
+
+.results {
+  color: white;
+  width: 90vw;
+  max-width: 550px;
+  margin: 8vh auto;
+}
+
