@@ -1,5 +1,6 @@
 const x=5473;
 var obj;
+var payment;
 var room;
 var type;
 var price;
@@ -11,7 +12,7 @@ var dummy=[["6", "5", 7500],
 ["5", "1", 3000],
 ["10", "5", 7500],
 ["3", "3", 4500],
-["9","4",5000]]
+["9","4",5000]];
 // date picker range then post to database 
   $(function() {
     $('input[name="daterange"]').daterangepicker({
@@ -21,7 +22,7 @@ var dummy=[["6", "5", 7500],
     cin = start.format('DD/MM/YYYY');
     cout = end.format('DD/MM/YYYY');
 
-    fetch('http://4755872ae47a.ngrok.io/search_av_room', {
+    fetch('http://192.168.1.38:5000/search_av_room', {
       method: 'POST',
       body: JSON.stringify({
         "checkin": cin,
@@ -36,11 +37,28 @@ var dummy=[["6", "5", 7500],
       .then((json) => console.log(json));
       // end fetch
       //create talble
-      var mytable = "<table><tr>";
-      for (var CELL of dummy) {  mytable += "<td>" + CELL + "</td>"; }
-          mytable += "</tr></table>";
-          document.getElementById("ID").innerHTML = mytable;
-
+      function createTable(tableData) {
+        var table = document.createElement('table');
+        var tableBody = document.createElement('tbody');
+      
+        tableData.forEach(function(rowData) {
+          var row = document.createElement('tr');
+      
+          rowData.forEach(function(cellData) {
+            var cell = document.createElement('td');
+            cell.appendChild(document.createTextNode(cellData));
+            row.appendChild(cell);
+          });
+      
+          tableBody.appendChild(row);
+        });
+      
+        table.appendChild(tableBody);
+        document.body.appendChild(table);
+      }
+      
+      createTable(obj);
+      // 
 
     });
   });
@@ -72,3 +90,42 @@ fetch('URL', {
   .then((response) => response.json())
   .then((json) => console.log(json));
 }
+
+
+const myform = document.getElementById('myform');
+
+myform.addEventListener('submit',function(e) {
+  e.preventDefault();
+  const formdata = new FormData(this);
+
+  fetch('http://192.168.1.38:5000/dummy',{
+    method:'post',
+    body: formdata
+  }).then(console.log(x))
+  .then(function (response){
+    return response.text();
+  }).then(function (text) {
+    console.log(text);
+  }).catch(function (error) {
+    console.error(error);
+  })
+
+});
+
+
+document.querySelector('form.form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let x = document.querySelector('form.form').elements;
+  console.log("room", x['room'].value);
+  console.log("driver", x['driver'].value);
+  console.log("massage", x['massage'].value);
+  console.log("breakfast", x['breakfast'].value);
+  console.log("dinner", x['dinner'].value);
+  console.log("firstname", x['fname'].value);
+  console.log("lastname", x['lname'].value);
+  console.log("gender", x['gender'].value);
+  console.log("age", x['age'].value);
+  console.log("email", x['email'].value);
+  console.log("telephone", x['telephone'].value);
+
+});

@@ -14,7 +14,6 @@
           <nav>
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="admin.html">Admin</a></li>
               <li><a href="payment.html">Payment</a></li>
               <li><a href="#">Something</a></li>
             </ul>
@@ -22,22 +21,57 @@
         </div>
       </header>
 
+      <section class="container2">
+        <div class="left-half">
+          <div class="box">
+            <a href="#" class="myButton">Choose Date</a>
+            <input type="text" name="daterange" value="01/01/2021 - 1/31/2021" />
+            <!-- <p id="demo"></p> -->
+            <!-- <a href="#" class="myButton">Choose Date</a> -->
+            </div>
+            <table id="ID"></table>
+        </div>
 
-
-    <!-- nav
-    <div class="topnav">
-        <a class="book" href="./index.html">BOOKING</a>
-        <a class="admin" href="./admin.html">ADMIN</a>
-      </div>    -->
-
-
-    <div class="box">
-    <input type="text" name="daterange" value="01/01/2021 - 1/31/2021" />
-    <!-- <p id="demo"></p> -->
-    <a href="#" class="myButton">CHECK</a>
-    </div>
-    <table id="ID"></table>
-
+        <div class="right-half">
+          <div class="box2">
+            <!-- formmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+          <form class="form" id="myform">
+            <label for="room">Room:</label><br>
+            <input type="text" id="room" name="room" value="" placeholder="example 601,502"><br>
+            <div class="service">
+              <label for="service">Service:</label><br>
+              <input type="checkbox" id="driver" name="driver" value="driver">
+              <label for="driver">driver</label><br>
+              <input type="checkbox" id="massage" name="massage" value="massage">
+              <label for="massage">Massage</label><br>
+              <input type="checkbox" id="breakfast" name="breakfast" value="breakfast">
+              <label for="breakfast">Breakfast</label>
+              <input type="checkbox" id="dinner" name="dinner" value="dinner">
+              <label for="dinner">Dinner</label>
+            </div>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="" placeholder="Your firstname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="" placeholder="Your lastname"><br>
+            <div class="sex">
+              <input type="radio" id="male" name="gender" value="male">
+              <label for="male">Male</label><br>
+              <input type="radio" id="female" name="gender" value="female">
+              <label for="female">Female</label><br>
+              <input type="radio" id="other" name="gender" value="other">
+              <label for="other">Other</label>
+            </div>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" value="" placeholder="Your Age"><br>
+            <label for="email">email:</label><br>
+            <input type="text" id="email" name="email" value="" placeholder="Your Email"><br>
+            <label for="telephone">Telephone:</label><br>
+            <input type="text" id="telephone" name="telephone" value="" placeholder="Your Telephone number"><br><br>
+            <input type="submit" value="Submit">
+          </form> 
+        </div>
+        </div>
+      </section>
 
 <!-- for date picker -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
