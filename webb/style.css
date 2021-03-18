@@ -116,12 +116,15 @@ nav a:hover::before {
 }
 
 .left-half {
+  /* position: absolute; */
+  /* background-color: #84d1b7; */
   width: 50%;
   height: 100%;
 }
 
 .right-half {
   position: absolute;
+  /* background-color: #0ecc8d; */
   right: 0px;
   width: 50%;
   height: 100%;
@@ -152,3 +155,13 @@ table{
   /* margin-top: 50px; */
   border-radius: 20px;
 }
+
+
+
+.results {
+  color: white;
+  width: 90vw;
+  max-width: 550px;
+  margin: 8vh auto;
+}
+

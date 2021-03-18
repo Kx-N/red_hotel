@@ -1,8 +1,7 @@
 const x=5473;
+const nowday="19/03/2021"
 var obj;
-var payment;
-var room;
-var type;
+var booking;
 var price;
 var dummy=[["6", "5", 7500],
 ["1", "1", 3000],
@@ -13,6 +12,7 @@ var dummy=[["6", "5", 7500],
 ["10", "5", 7500],
 ["3", "3", 4500],
 ["9","4",5000]];
+
 // date picker range then post to database 
   $(function() {
     $('input[name="daterange"]').daterangepicker({
@@ -22,7 +22,9 @@ var dummy=[["6", "5", 7500],
     cin = start.format('DD/MM/YYYY');
     cout = end.format('DD/MM/YYYY');
 
-    fetch('http://192.168.1.38:5000/search_av_room', {
+    // fetch('http://192.168.1.38:5000/search_av_room', {
+    fetch('url', {
+
       method: 'POST',
       body: JSON.stringify({
         "checkin": cin,
@@ -36,6 +38,7 @@ var dummy=[["6", "5", 7500],
       .then(data => obj = data)
       .then((json) => console.log(json));
       // end fetch
+
       //create talble
       function createTable(tableData) {
         var table = document.createElement('table');
@@ -56,9 +59,7 @@ var dummy=[["6", "5", 7500],
         table.appendChild(tableBody);
         document.body.appendChild(table);
       }
-      
-      createTable(obj);
-      // 
+      createTable(dummy);
 
     });
   });
@@ -88,44 +89,68 @@ fetch('URL', {
   },
 })
   .then((response) => response.json())
+  .then(data => booking = data)
   .then((json) => console.log(json));
 }
 
 
-const myform = document.getElementById('myform');
+// const myform = document.getElementById('myform');
 
-myform.addEventListener('submit',function(e) {
-  e.preventDefault();
-  const formdata = new FormData(this);
-
-  fetch('http://192.168.1.38:5000/dummy',{
-    method:'post',
-    body: formdata
-  }).then(console.log(x))
-  .then(function (response){
-    return response.text();
-  }).then(function (text) {
-    console.log(text);
-  }).catch(function (error) {
-    console.error(error);
-  })
-
-});
+// myform.addEventListener('submit',function(e) {
+//   e.preventDefault();
+//   const formdata = new FormData(this);
 
 
-document.querySelector('form.form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  let x = document.querySelector('form.form').elements;
-  console.log("room", x['room'].value);
-  console.log("driver", x['driver'].value);
-  console.log("massage", x['massage'].value);
-  console.log("breakfast", x['breakfast'].value);
-  console.log("dinner", x['dinner'].value);
-  console.log("firstname", x['fname'].value);
-  console.log("lastname", x['lname'].value);
-  console.log("gender", x['gender'].value);
-  console.log("age", x['age'].value);
-  console.log("email", x['email'].value);
-  console.log("telephone", x['telephone'].value);
 
-});
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  document.getElementById("bookdate").value = nowday;
+  document.getElementById("checkin").value = cin;
+  document.getElementById("checkout").value = cout;
+
+  var checkboxes = document.getElementsByTagName('input');
+
+  if(document.getElementById("driver").checked) {
+    document.getElementById('undriver').disabled = true;
+  }
+  if(document.getElementById("massage").checked) {
+    document.getElementById('unmassage').disabled = true;
+  }
+  if(document.getElementById("breakfast").checked) {
+    document.getElementById('unbreakfast').disabled = true;
+  }
+  if(document.getElementById("dinner").checked) {
+    document.getElementById('undinner').disabled = true;
+  }
+  
+  const data = new FormData(event.target);
+  
+  const formJSON = Object.fromEntries(data.entries());
+
+  // formJSON.roomid = data.getAll('roomid');
+  // formJSON.person = data.getAll('person');
+
+
+  //fetch in
+  const results = document.querySelector('.results pre');
+  results.innerText = JSON.stringify(formJSON, null, 2);
+
+  // fetch('http://192.168.1.38:5000/create_booking', {
+  fetch('url', {
+
+      method: 'POST',
+      body: JSON.stringify(formJSON, null, 2),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then(data => booking = data)
+      .then((json) => console.log(json));
+  
+}
+
+const form = document.querySelector('.box2');
+form.addEventListener('submit', handleFormSubmit);
+
