@@ -1,5 +1,5 @@
 const x=5473;
-const nowday="19/03/2021"
+const nowday="21/03/2021"
 var obj;
 var booking;
 var price;
@@ -26,8 +26,8 @@ var dummy=[["6", "5", 7500],
     cin = start.format('DD/MM/YYYY');
     cout = end.format('DD/MM/YYYY');
 
-    // fetch('http://192.168.1.38:5000/search_av_room', {
-    fetch('url', {
+    fetch('http://192.168.43.203:5000/search_av_room', {
+    // fetch('url', {
 
       method: 'POST',
       body: JSON.stringify({
@@ -63,8 +63,12 @@ var dummy=[["6", "5", 7500],
         table.appendChild(tableBody);
         document.body.appendChild(table);
       }
-      dummy.unshift(["RoomID","Type","Price/Night"]);
-      createTable(dummy);
+      obj.unshift(["RoomID","Type","Price/Night"]);
+      // dummy.unshift(["RoomID","Type","Price/Night"]);
+
+      // createTable(dummy);
+      createTable(obj);
+
 
     });
   });
@@ -141,8 +145,8 @@ function handleFormSubmit(event) {
   const results = document.querySelector('.results pre');
   results.innerText = JSON.stringify(formJSON, null, 2);
 
-  // fetch('http://192.168.1.38:5000/create_booking', {
-  fetch('url', {
+  fetch('http://192.168.43.203:5000/create_booking', {
+  // fetch('url', {
 
       method: 'POST',
       body: JSON.stringify(formJSON, null, 2),
@@ -154,28 +158,26 @@ function handleFormSubmit(event) {
       .then(data => booking = data)
       .then((json) => console.log(json));
 
+    //   document.getElementById('boximage').style.display = "block";
+    //   document.getElementById('cash').href=booking[0];
+    //   document.getElementById('mastercard').href=booking[2];
+    //   document.getElementById('visa').href=booking[1];
+    //   document.getElementById('btc').href=booking[3];
 
 
+    //   if ($('#boximage').css('opacity') == 0) {
+    //     $('#boximage').css('opacity', 1);
 
-      // document.getElementById('boximage').style.display = "block";
-      document.getElementById('cash').href=dummy2[0];
-      document.getElementById('mastercard').href=dummy2[2];
-      document.getElementById('visa').href=dummy2[1];
-      document.getElementById('btc').href=dummy2[3];
-
-      if ($('#boximage').css('opacity') == 0) {
-        $('#boximage').css('opacity', 1);
-
-    }
-    else {
-        $('#boximage').css('opacity', 0);
-    }
+    // }
+    // else {
+    //     $('#boximage').css('opacity', 0);
+    // }
 
     
     // setTimeout("alertWelcome();",5000);
-    $('a').click( function(e) {
-      e.preventDefault(); 
-      alert ("Successful payment"); return false; } );
+    // $('a').click( function(e) {
+    //   e.preventDefault(); 
+    //   alert ("Successful payment"); return false; } );
 
 
 }
@@ -193,4 +195,16 @@ function myFunction() {
     $('#type').css('opacity', 1);}
   else {
     $('#type').css('opacity', 0);}
+}
+
+function myFunction2() {
+  var x = document.getElementById("boximage");
+  document.getElementById('cash').href=booking[0];
+  document.getElementById('mastercard').href=booking[2];
+  document.getElementById('visa').href=booking[1];
+  document.getElementById('btc').href=booking[3];
+  if ($('#boximage').css('opacity') == 0) {
+    $('#boximage').css('opacity', 1);}
+  else {
+    $('#boximage').css('opacity', 0);}
 }
