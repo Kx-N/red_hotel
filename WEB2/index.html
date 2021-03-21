@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Nunito+Sans:wght@200;400&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+  <!-- <div style="background-image: url('bg.jpg');"></div> -->
+    <header>
+        <div class="container">    
+          <nav>
+            <ul>
+              <li><a href="index.html">Booking</a></li>
+              <li><a href="#" onclick="myFunction()" >Roomtype</a></li>
+              <li><a href="#">ETC</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="outerDiv">
+        <div class="leftDiv">
+          <img src="type.png" alt=""  width="500px" height="800px" id="type">
+
+          <div class="box">
+            <a href="#" class="myButton">Choose Date</a>
+            <input type="text" name="daterange" value="01/01/2021 - 1/31/2021" />
+
+            </div>
+            <!-- <table id="ID"></table> -->
+
+        </div>
+
+        <div class="rightDiv">
+          <div class="results">
+            <h2>Form Data</h2>
+            <pre></pre>
+          </div>
+          
+          <div id="boximage">
+            <!-- <h3>Choose</h3> -->
+            <h3>Payment method</h3><br>
+
+            <a id="cash" href="https://www.google.com/" target="_blank" ><img src="cash.png" alt=""  width="130px"  class="image"></a>
+            <a id="visa" href="https://www.google.com/" target="_blank"><img src="visa.png" alt=""  width="150px" class="image"></a>
+            <a id="mastercard" href="https://www.google.com/" target="_blank"><img src="mastercard.png" alt=""  width="120px" " class="image"></a>
+            <a id="btc" href="https://www.google.com/" target="_blank"><img src="btc.png" alt=""  width="150px" height="130px" class="image"></a>
+          </div>
+        </div>
+
+        <div class="midDiv">
+          <section class="box2"> 
+            <!-- formmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+          <form>
+            <label for="room">Room:</label><br>
+            <input type="text" id="roomid" name="roomid"  placeholder="example 601"><br>
+
+            <label for="room">Person:</label><br>
+            <input type="text" id="person" name="person"  placeholder="example 1"><br>
+
+            <div class="service">
+              <label for="service">Service:</label><br>
+              <!-- <input type="checkbox" id="driver" name="driver" value="1">
+              uncheck
+              <input type="hidden" id="undriver" name="driver" value="0">
+              <label for="driver">driver</label><br>
+
+              <input type="checkbox" id="massage" name="massage" value="1">
+              uncheck
+              <input type="hidden" id="unmassage" name="massage" value="0">
+              <label for="massage">Massage</label><br> -->
+              <label for="checkser"  style="word-wrap:break-word">
+                <input id="driver" type="checkbox" name="driver" value="1" >
+                <input type="hidden" id="undriver" name="driver" value="0">driver
+             </label>
+             <label for="checkser"  style="word-wrap:break-word">
+              <input id="massage" type="checkbox" name="massage" value="1" >
+              <input type="hidden" id="unmassage" name="massage" value="0">massage
+             </label>
+              <div>
+              <input type="checkbox" id="breakfast" name="breakfast" value="1">
+              <!-- uncheck -->
+              <input type="hidden" id="unbreakfast" name="breakfast" value="0">
+              <label for="breakfast">Breakfast</label>
+
+              <input type="checkbox" id="dinner" name="dinner" value="1">
+              <!-- uncheck -->
+              <input type="hidden" id="undinner" name="dinner" value="0">
+              <label for="dinner">Dinner</label>
+            </div>
+            </div>
+
+            <label for="fname">First name:</label><br>
+            <input type="text" id="firstname" name="firstname" value="" placeholder="Your firstname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lastname" name="lastname" value="" placeholder="Your lastname"><br>
+            <input type="hidden" id="bookdate" name="bookdate" value="araiwaa">
+            <input type="hidden" id="checkin" name="checkin" value=cin>
+            <input type="hidden" id="checkout" name="checkout" value=cout>
+
+            <div class="sex">
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="male">male
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="male">female
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="other">other
+              </label>
+            </div>
+
+            <div>
+              <label for="age">Age:</label><br>
+              <input type="number" id="age" name="age" value="" placeholder="Your Age"><br>
+              <label for="email">email:</label><br>
+              <input type="text" id="email" name="email" value="" placeholder="Your Email"><br>
+              <label for="telephone">Telephone:</label><br>
+              <input type="text" id="tel" name="tel" value="" placeholder="Your Telephone number"><br><br>
+              <input type="submit" value="Submit" id="formbutton">
+            </div>
+          </form> 
+        </section>
+        </div>
+
+      </div>
+
+<!-- for date picker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<!-- script -->
+    <script src="./script.js"></script>  
+</body>
+</html>
